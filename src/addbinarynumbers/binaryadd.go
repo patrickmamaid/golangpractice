@@ -1,7 +1,5 @@
 package main
 
-// prioritize readability
-
 import "fmt"
 
 func add(a string, b string) string {
@@ -14,15 +12,12 @@ func add(a string, b string) string {
 
 	if aLen > bLen {
 		// pad b
-		fmt.Println("here")
 		for i:=0 ; i < (aLen - bLen); i++ {
 			newB = "0" + newB
 		}
-
 	}
 
 	if aLen < bLen {
-		fmt.Println("here2")
 		// pad a
 		for i:=0 ; i < ( bLen - aLen); i++ {
 			newA = "0" + newA
@@ -31,9 +26,7 @@ func add(a string, b string) string {
 
 	// continue since they are equal
 
-
 	// perform addition one by one
-
 	var carry int = 0
 	var retval string = ""
 	for i:= len(newA) - 1  ; i >= 0  ; i--{
@@ -81,8 +74,7 @@ func add(a string, b string) string {
 		}
 	}
 
-
-	// process the final carry
+	// prepend the final carry
 	if carry == 1 {
 		retval = "1" + retval
 	}
