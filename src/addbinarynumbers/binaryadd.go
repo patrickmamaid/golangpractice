@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+//Runtime: 4 ms, faster than 21.02% of Go online submissions for Add Binary.
+//Memory Usage: 3.5 MB, less than 9.24% of Go online submissions for Add Binary.
+
+
+
 func add(a string, b string) string {
 
 	//retString := "0"
@@ -25,12 +30,13 @@ func add(a string, b string) string {
 	}
 
 	// continue since they are equal
-
+	fmt.Println("a & b:", newA, newB)
 	// perform addition one by one
 	var carry int = 0
 	var retval string = ""
 	for i:= len(newA) - 1  ; i >= 0  ; i--{
 
+		fmt.Println("loop:", i, "carry:", carry, "calc:", string(newA[i]), "+", string(newB[i]))
 		// 1 + 0
 		if newA[i] == '0' {
 
@@ -57,13 +63,14 @@ func add(a string, b string) string {
 			if newB[i] == '0' {
 				// a 1 b 0 c 1
 				if carry == 1 {
-					retval = "1" + retval
-					carry = 0
-				}else { // a 1 b 0 c 0
 					retval = "0" + retval
+					carry = 1
+				}else { // a 1 b 0 c 0
+					retval = "1" + retval
 				}
 			}else{ // b == 1
 				if carry == 1 { // a 1 b 1 c 1
+					fmt.Println("debug")
 					retval = "1" + retval
 					carry = 1
 				}else { // a 1 b 1 c 0
@@ -84,5 +91,5 @@ func add(a string, b string) string {
 
 
 func main() {
-	fmt.Println(add("111", "1111"))
+	fmt.Println(add("1", "10"))
 }
