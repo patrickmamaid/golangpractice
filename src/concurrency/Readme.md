@@ -8,3 +8,5 @@ you should try:
 2. playing with number of jobs
 3. create a deadlock when workers and jobs are not the same, then try to understand why (a: its all about the buffer channel space!)
 4. add more go workers, reduce go workers
+
+`every line is commented in main.go for the purpose of learning exactly what every line does`
