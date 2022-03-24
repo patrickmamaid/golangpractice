@@ -2,12 +2,9 @@ package main
 
 import "fmt"
 
-const NUM_WORKERS int = 5
-const NUM_JOBS int = 100
-
 func main() {
-	jobs := make(chan int, NUM_JOBS)
-	results := make(chan int, NUM_JOBS)
+	jobs := make(chan int, 100)    // create a channel with a buffer space of 100 with intent to create jobs
+	results := make(chan int, 100) // create a channel with a buffer space of 100 with intend to recieve results in int
 
 	go worker(jobs, results) // non blocking line, because its a goroutine
 	go worker(jobs, results) // non blocking line, because its a goroutine
@@ -17,13 +14,13 @@ func main() {
 	go worker(jobs, results) // non blocking line, because its a goroutine
 	go worker(jobs, results) // non blocking line, because its a goroutine
 
-	for i := 0; i < NUM_JOBS; i++ {
+	for i := 0; i < 100; i++ {
 		jobs <- i // i == used in fib(i), creates a job here
 	}
 	close(jobs) // blocking call, eventually after feeding all the jobs, im not going to give it more jobs so close the channel
 	// that means worker doesnt expect to recieve anymore
 
-	for i := 0; i < NUM_JOBS; i++ {
+	for i := 0; i < 100; i++ {
 		fmt.Println(<-results) // keeps recieving results int until all the jobs are done
 	}
 
