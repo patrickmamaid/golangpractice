@@ -1,6 +1,9 @@
 ![img_1.png](img_1.png)
 
 ##This demonstrates one of the ways in which you can use concurrency in golang
+
+This is a very simple example and hopefully easy for someone to understand!
+
 1. make a slow fib function
 2. make worker threads to process it
 
