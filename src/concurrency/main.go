@@ -17,8 +17,8 @@ func main() {
 	for i := 0; i < 100; i++ {
 		jobs <- i // i == used in fib(i), creates a job here (i) and sends that as a signal to the worker through the jobs channel (the workers one lines 9-15)
 	}
-	close(jobs) // blocking call, eventually after feeding all the jobs, im not going to give it more jobs so close the channel
-	// that means worker doesnt expect to recieve anymore
+	close(jobs) // blocking call, eventually unblocks after feeding all the jobs (for loop), so since now im not going to give it anymore jobs so close the channel
+	// that means worker doesnt expect to recieve anymore and the worker will terminate because it notices the jobs channel is closed, see func worker
 
 	for i := 0; i < 100; i++ {
 		fmt.Println(<-results) // keeps recieving results int until all the jobs are done
