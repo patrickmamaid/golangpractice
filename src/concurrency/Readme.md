@@ -10,3 +10,5 @@ you should try:
 4. add more go workers, reduce go workers
 
 `every line is commented in main.go for the purpose of learning exactly what every line does`
+
+![img.png](img.png)
