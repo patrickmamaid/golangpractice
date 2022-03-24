@@ -8,8 +8,8 @@ import "fmt"
 // if you are doing a <- i, then you are sending a signal to a channel from i channel
 
 func main() {
-	jobs := make(chan int, 100)    // create a channel with a buffer space of 100 with intent to create jobs
-	results := make(chan int, 100) // create a channel with a buffer space of 100 with intend to recieve results in int
+	jobs := make(chan int, 100)    // create a signal channel with a buffer space of 100 with intent to create jobs, ill be sending ints through this channel
+	results := make(chan int, 100) // create a signal channel with a buffer space of 100 with intend to recieve results in int, ill be sending ints through this channel
 
 	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
 	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
