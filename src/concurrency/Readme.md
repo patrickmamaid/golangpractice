@@ -12,3 +12,7 @@ you should try:
 `every line is commented in main.go for the purpose of learning exactly what every line does`
 
 ![img.png](img.png)
+
+The concept of golang concurrency was developed through
+https://www.cs.ox.ac.uk/people/bill.roscoe/publications/68b.pdf
+
