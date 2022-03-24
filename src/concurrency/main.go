@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+// preface
+// channels are created by the use of <- and there is no such thing as "->" so its easy to remember
+// if the arrow is in front of the var like i<- then i channel is recieving a signal
+// if you are doing a <- i, then you are sending a signal to a channel from i channel
+
 func main() {
 	jobs := make(chan int, 100)    // create a channel with a buffer space of 100 with intent to create jobs
 	results := make(chan int, 100) // create a channel with a buffer space of 100 with intend to recieve results in int
@@ -25,7 +30,7 @@ func main() {
 	}
 
 }
-func worker(jobs <-chan int, results chan<- int) { // workers func expect inbound jobs channel (recv from channel), and outbound results channel (send to channel)
+func worker(jobs <-chan int, results chan<- int) { // workers func params: jobs <- expects an inbound jobs channel (a recv from channel), and results chan<-: outbound results channel (send to channel). this is good practice to ensure you are sending the correct type of channel to this function, otherwise the arrows are optional
 
 	for n := range jobs { // waits until it recieves a job, (how many jobs) goes into n
 		results <- fib(n) // execute slow algo per n jobs, when done, send int through results channel
