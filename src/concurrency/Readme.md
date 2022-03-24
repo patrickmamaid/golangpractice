@@ -1,5 +1,5 @@
 ![img_1.png](img_1.png)
-This demonstrates the use of concurrency in golang
+##This demonstrates one of the ways where you can use concurrency in golang
 1. make a slow fib function
 2. make worker threads to process it
 
