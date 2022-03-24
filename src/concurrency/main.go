@@ -6,13 +6,13 @@ func main() {
 	jobs := make(chan int, 100)    // create a channel with a buffer space of 100 with intent to create jobs
 	results := make(chan int, 100) // create a channel with a buffer space of 100 with intend to recieve results in int
 
-	go worker(jobs, results) // non blocking line, because its a goroutine
-	go worker(jobs, results) // non blocking line, because its a goroutine
-	go worker(jobs, results) // non blocking line, because its a goroutine
-	go worker(jobs, results) // non blocking line, because its a goroutine
-	go worker(jobs, results) // non blocking line, because its a goroutine
-	go worker(jobs, results) // non blocking line, because its a goroutine
-	go worker(jobs, results) // non blocking line, because its a goroutine
+	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
+	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
+	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
+	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
+	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
+	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
+	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
 
 	for i := 0; i < 100; i++ {
 		jobs <- i // i == used in fib(i), creates a job here
