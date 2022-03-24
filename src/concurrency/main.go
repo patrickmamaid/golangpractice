@@ -15,7 +15,7 @@ func main() {
 	go worker(jobs, results) // non blocking line, because its a goroutine (kinda like creating a thread and going .run() in java)
 
 	for i := 0; i < 100; i++ {
-		jobs <- i // i == used in fib(i), creates a job here
+		jobs <- i // i == used in fib(i), creates a job here (i) and sends that as a signal to the worker through the jobs channel (the workers one lines 9-15)
 	}
 	close(jobs) // blocking call, eventually after feeding all the jobs, im not going to give it more jobs so close the channel
 	// that means worker doesnt expect to recieve anymore
