@@ -1,5 +1,7 @@
 ![img_1.png](img_1.png)
 
+try it right away here: https://go.dev/play/p/7_rJR_tuLJH
+
 ##This demonstrates one of the ways in which you can use concurrency in golang
 
 This is a very simple example and hopefully easy enough for someone to understand!
@@ -20,7 +22,7 @@ you should try:
 
 ![img.png](img.png)
 
-`image above shows the `
+`image above shows the cpu usage on my local`
 
 The concept of golang concurrency was developed through
 https://www.cs.ox.ac.uk/people/bill.roscoe/publications/68b.pdf
